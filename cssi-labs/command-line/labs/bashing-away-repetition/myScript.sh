@@ -1,4 +1,5 @@
-#!/bin/bash -eu
+echo"Hello World"
+mkdir  08_04_2019My_Folder02
 #
 # Copyright 2018 Google LLC
 #
