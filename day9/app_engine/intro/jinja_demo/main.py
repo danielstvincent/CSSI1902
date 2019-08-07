@@ -29,8 +29,16 @@ class ResultPage(webapp2.RequestHandler):
         t = the_jinja_env.get_template('templates/results.html')
         self.response.write(t.render())
 
+class FavPage(webapp2.RequestHandler):
+    def get(self):
+        t = the_jinja_env.get_template("templates/fav.html")
+        fav = {"title":"my favorite Websites","item1":"google","item2":"Youtube","item3":"Twitter","item4":"FaceBook"}
+        self.response.write(t.render(fav))
+
+
 routes = [('/', MainPage),
             ('/about', AboutPage),
             ('/news', NewsPage),
+            ('/fav', FavPage),
             ('/result', ResultPage)]
 app = webapp2.WSGIApplication(routes, debug=True)

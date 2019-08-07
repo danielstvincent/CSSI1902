@@ -1,0 +1,20 @@
+#color1 {
+    /* property: value */
+    background-color: rgb(9, 255, 0);
+    border: Solid 2px solid black;
+}
+
+#color2{
+    background-color: green;
+    border: Solid 2px solid black;
+}
+
+#color3{
+    background-color: blue;
+    border: Solid 2px solid black;
+}
+
+#color4{
+    background-color: rgb(0, 128, 100);
+    border: Solid 2px solid white;
+}
