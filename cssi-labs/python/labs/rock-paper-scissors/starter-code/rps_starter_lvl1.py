@@ -19,13 +19,13 @@ import random
 
 def get_player_move():
     """Asks the user to enter a move as 'r', 'p', or 's', and return it"""
-    return raw_input("Choose your move [r|p|s]: ").lower()
+    return input("Choose your move [r|p|s]: ").lower()
 
 
 def get_computer_move():
     """Randomly generates the computer's move and
     returns it in the form of 'r', 'p', or 's'"""
-    return "rps"[random.randint(0,2)]
+    return "rps"[random.randint(0,2)] #"This is the line of code that makes the rock, paper and scissor random
 
 
 def determine_winner(player_move, comp_move):
@@ -57,6 +57,38 @@ def get_move_name(short_move):
         return "Paper"
     else:
         return "Scissors"
+
+def main():
+    rounds= int(input ('How many rounds of RPS do you want to play? '))
+    playerScore = 0
+    compScore = 0
+    myTies = 0
+    for i in range(rounds):
+        playerMove = get_move_name(get_player_move())
+        print('Your move is: ', playerMove)
+        compMove = get_move_name(get_computer_move())
+        print(' move is: ', playerMove)
+        winner = determine_winner(playerMove,compMove)
+        if winner == "computer":
+            compScore += 1
+        elif winner == "player":    
+            playerScore += 1
+        else:#your else statement is the default when all else fails
+            myTies +=1
+    print_scoreboard(playerScore, compScore, myTies)
+
+    winMax = max(playerScore, compScore, myTies)
+    if playerScore == winMax and playerScore > compScore and playerScore > myTies:
+        winner = 'Player'
+    elif compScore == winMax and playerScore < compScore and compScore > myTies:
+        winner = 'Computer'
+    else:
+        winner = 'It is a tie'
+        
+    print('The winner is: ', winner)
+    
+if __name__ == "__main__":
+    main()
 
 
 # Write your code below - make RPS happen using the functions above!
